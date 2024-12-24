@@ -10,7 +10,7 @@ locals {
       cidr = "10.0.0.0/19"
       tags = {
         "kubernetes.io/role/internal-elb" = "1"
-        "kubernetes.io/cluster/aws-eks"    = "owned"
+        "kubernetes.io/cluster/aws-eks"   = "owned"
       }
       subnet_name = "private-1a"
     }
@@ -19,7 +19,7 @@ locals {
       cidr = "10.0.32.0/19"
       tags = {
         "kubernetes.io/role/internal-elb" = "1"
-        "kubernetes.io/cluster/aws-eks"    = "owned"
+        "kubernetes.io/cluster/aws-eks"   = "owned"
       }
       subnet_name = "private-1b"
     }
@@ -27,20 +27,20 @@ locals {
       zone = "ap-south-1a"
       cidr = "10.0.64.0/19"
       tags = {
-        "kubernetes.io/role/elb"         = "1"
+        "kubernetes.io/role/elb"        = "1"
         "kubernetes.io/cluster/aws-eks" = "owned"
       }
-      subnet_name = "public-1a"
+      subnet_name             = "public-1a"
       map_public_ip_on_launch = true
     }
     "public-2" = {
       zone = "ap-south-1b"
       cidr = "10.0.96.0/19"
       tags = {
-        "kubernetes.io/role/elb"         = "1"
+        "kubernetes.io/role/elb"        = "1"
         "kubernetes.io/cluster/aws-eks" = "owned"
       }
-      subnet_name = "public-1b"
+      subnet_name             = "public-1b"
       map_public_ip_on_launch = true
     }
   }

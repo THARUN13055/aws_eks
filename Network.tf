@@ -20,12 +20,12 @@ module "subnets" {
 
   for_each = local.subnets
 
-  vpc_id            = module.vpc.vpc_ids
-  cidr_block        = each.value.cidr
-  availability_zone = each.value.zone
-  additional_tags   = local.tags
-  tags              = each.value.tags
-  subnet-name       = each.value.subnet_name
+  vpc_id                  = module.vpc.vpc_ids
+  cidr_block              = each.value.cidr
+  availability_zone       = each.value.zone
+  additional_tags         = local.tags
+  tags                    = each.value.tags
+  subnet-name             = each.value.subnet_name
   map_public_ip_on_launch = each.value.map_public_ip_on_launch
 }
 

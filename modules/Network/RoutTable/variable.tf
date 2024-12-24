@@ -16,9 +16,9 @@ variable "additional_tags" {
 
 variable "subnets" {
   type = map(object({
-    zone       = string
-    cidr       = string
-    tags       = map(string)
+    zone        = string
+    cidr        = string
+    tags        = map(string)
     subnet_name = string
   }))
 }

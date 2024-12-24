@@ -5,7 +5,7 @@ resource "aws_vpc" "eks-vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-   tags = merge(
+  tags = merge(
     {
       Name = var.vpc-name
     },
