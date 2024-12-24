@@ -26,6 +26,7 @@ module "subnets" {
   additional_tags   = local.tags
   tags              = each.value.tags
   subnet-name       = each.value.subnet_name
+  map_public_ip_on_launch = each.value.map_public_ip_on_launch
 }
 
 

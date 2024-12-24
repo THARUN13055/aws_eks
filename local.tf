@@ -31,6 +31,7 @@ locals {
         "kubernetes.io/cluster/aws-eks" = "owned"
       }
       subnet_name = "public-1a"
+      map_public_ip_on_launch = true
     }
     "public-2" = {
       zone = "ap-south-1b"
@@ -40,6 +41,7 @@ locals {
         "kubernetes.io/cluster/aws-eks" = "owned"
       }
       subnet_name = "public-1b"
+      map_public_ip_on_launch = true
     }
   }
 }
