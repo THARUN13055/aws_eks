@@ -13,6 +13,7 @@ locals {
         "kubernetes.io/cluster/aws-eks"   = "owned"
       }
       subnet_name = "private-1a"
+      map_public_ip_on_launch = false
     }
     "private-2" = {
       zone = "ap-south-1b"
@@ -22,6 +23,7 @@ locals {
         "kubernetes.io/cluster/aws-eks"   = "owned"
       }
       subnet_name = "private-1b"
+      map_public_ip_on_launch = false
     }
     "public-1" = {
       zone = "ap-south-1a"
@@ -43,6 +45,12 @@ locals {
       subnet_name             = "public-1b"
       map_public_ip_on_launch = true
     }
+  }
+
+  eks-version = 1.31
+  eks-tags = {
+    Name    = "aws-eks"
+    Version = "1.31"
   }
 }
 

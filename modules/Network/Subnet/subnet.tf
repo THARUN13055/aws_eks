@@ -5,5 +5,4 @@ resource "aws_subnet" "eks-subnet" {
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
   tags     = merge(var.tags, var.additional_tags)
-  tags_all = var.additional_tags
 }
