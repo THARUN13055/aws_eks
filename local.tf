@@ -12,7 +12,7 @@ locals {
         "kubernetes.io/role/internal-elb" = "1"
         "kubernetes.io/cluster/aws-eks"   = "owned"
       }
-      subnet_name = "private-1a"
+      subnet_name             = "private-1a"
       map_public_ip_on_launch = false
     }
     "private-2" = {
@@ -22,7 +22,7 @@ locals {
         "kubernetes.io/role/internal-elb" = "1"
         "kubernetes.io/cluster/aws-eks"   = "owned"
       }
-      subnet_name = "private-1b"
+      subnet_name             = "private-1b"
       map_public_ip_on_launch = false
     }
     "public-1" = {
