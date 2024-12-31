@@ -1,4 +1,4 @@
-resource "aws_eks_cluster" "aws-eks" {
+resource "aws_eks_cluster" "aws_eks" {
   name = var.cluster-name
 
   access_config {
@@ -16,4 +16,8 @@ resource "aws_eks_cluster" "aws-eks" {
     vpc_id                  = var.vpc_id
 
   }
+}
+
+data "aws_eks_cluster_auth" "cluster_auth_name" {
+  name = aws_eks_cluster.aws_eks.name
 }
