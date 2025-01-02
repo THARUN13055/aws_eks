@@ -5,7 +5,7 @@ locals {
     "Project"     = "aws-eks"
   }
   subnets = {
-    "private-1" = {
+    "private-1a" = {
       zone = "ap-south-1a"
       cidr = "10.0.0.0/19"
       name = "private-1a"
@@ -16,7 +16,7 @@ locals {
       }
       map_public_ip_on_launch = false
     }
-    "private-2" = {
+    "private-2b" = {
       zone = "ap-south-1b"
       cidr = "10.0.32.0/19"
       name = "private-2b"
@@ -27,7 +27,7 @@ locals {
       }
       map_public_ip_on_launch = false
     }
-    "public-1" = {
+    "public-1a" = {
       zone = "ap-south-1a"
       cidr = "10.0.64.0/19"
       name = "public-1a"
@@ -38,7 +38,7 @@ locals {
       }
       map_public_ip_on_launch = true
     }
-    "public-2" = {
+    "public-2b" = {
       zone = "ap-south-1b"
       cidr = "10.0.96.0/19"
       name = "public-2b"

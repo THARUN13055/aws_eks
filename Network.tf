@@ -38,7 +38,7 @@ module "NAT" {
   elastic_ip_nat    = module.Elastic-ip.nat_gateway_ids
   subnet_id         = module.subnets.subnet_ids["public-2b"]
   additional_tags   = local.tags
-  availability_zone = local.subnets.public-2.zone
+  availability_zone = local.subnets.public-2b.zone
 }
 
 
