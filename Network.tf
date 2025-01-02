@@ -18,15 +18,9 @@ module "IGW" {
 module "subnets" {
   source = "./modules/Network/Subnet"
 
-  for_each = local.subnets
-
-  vpc_id                  = module.vpc.vpc_ids
-  cidr_block              = each.value.cidr
-  availability_zone       = each.value.zone
-  additional_tags         = local.tags
-  tags                    = each.value.tags
-  subnet-name             = each.value.subnet_name
-  map_public_ip_on_launch = each.value.map_public_ip_on_launch
+  vpc_id          = module.vpc.vpc_ids
+  subnets         = local.subnets
+  additional_tags = local.tags
 }
 
 
@@ -42,7 +36,7 @@ module "NAT" {
   source = "./modules/Network/NAT"
 
   elastic_ip_nat    = module.Elastic-ip.nat_gateway_ids
-  subnet_id         = local.subnets.public-2.cidr
+  subnet_id         = module.subnets.subnet_ids["public-2b"]
   additional_tags   = local.tags
   availability_zone = local.subnets.public-2.zone
 }
@@ -56,4 +50,3 @@ module "Route" {
   additional_tags     = local.tags
   subnets             = local.subnets
 }
-

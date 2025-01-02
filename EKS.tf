@@ -5,7 +5,7 @@ module "cluster" {
   auth_mode               = "API"
   master-role-arn         = module.master-role.master-role-arn
   eks-version             = local.eks-version
-  subnet_ids              = ["module.subnets.private-1a.id", "module.subnets.private-1b.id"]
+  subnet_ids              = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
   endpoint_public_access  = true
   endpoint_private_access = true
   vpc_id                  = module.vpc.vpc_ids
@@ -17,7 +17,7 @@ module "node" {
   node_group_name = "aws-eks-node"
   instance_types  = ["t2.micro"]
   node_role_arn   = module.node-role.node-role-arn
-  subnet_ids      = ["module.subnets.private-1a.id", "module.subnets.private-1b.id"]
+  subnet_ids      = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
   capacity_type   = "ON_DEMAND"
   desired_size    = 1
   max_size        = 3

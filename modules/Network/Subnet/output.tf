@@ -1,3 +1,3 @@
 output "subnet_ids" {
-  value = aws_subnet.eks-subnet.*.id
+  value = { for subnet in aws_subnet.eks_subnet : subnet.tags["Name"] => subnet.id }
 }
