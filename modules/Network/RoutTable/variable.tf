@@ -14,10 +14,10 @@ variable "additional_tags" {
   type = map(string)
 }
 
-variable "subnets" {
-  type = map(object({
-    zone = string
-    cidr = string
-    tags = map(string)
-  }))
+variable "public_subnet_id" {
+  type = list(string)
+}
+
+variable "private_subnet_id" {
+  type = list(string)
 }

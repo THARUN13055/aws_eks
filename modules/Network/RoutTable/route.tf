@@ -32,13 +32,13 @@ resource "aws_route_table" "private" {
 #Associated the Route Table
 
 resource "aws_route_table_association" "public_route_table_association" {
-  for_each       = { for id, subnet in var.subnets : id => subnet if lookup(subnet.tags, "kubernetes.io/role/elb", null) == "1" }
-  subnet_id      = each.key
+  for_each       = { for index, id in var.public_subnet_id : index => id }
+  subnet_id      = each.value
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "private_route_table_association" {
-  for_each       = { for id, subnet in var.subnets : id => subnet if lookup(subnet.tags, "kubernetes.io/role/internal-elb", null) == "1" }
-  subnet_id      = each.key
+  for_each       = { for index, id in var.private_subnet_id : index => id }
+  subnet_id      = each.value
   route_table_id = aws_route_table.private.id
 }

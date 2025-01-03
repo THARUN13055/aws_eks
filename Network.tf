@@ -48,5 +48,6 @@ module "Route" {
   internet_gateway_id = module.IGW.internet_gateway_ids
   nat_gateway_id      = module.NAT.privateNat_ids
   additional_tags     = local.tags
-  subnets             = local.subnets
+  private_subnet_id   = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
+  public_subnet_id    = [module.subnets.subnet_ids["public-1a"], module.subnets.subnet_ids["public-2b"]]
 }
