@@ -15,13 +15,13 @@ module "node" {
   source          = "./modules/EKS/Node"
   cluster_name    = module.cluster.cluster-name
   node_group_name = "aws-eks-node"
-  instance_types  = ["t2.micro"]
+  instance_types  = ["t2.medium"]
   node_role_arn   = module.node-role.node-role-arn
   subnet_ids      = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
   capacity_type   = "ON_DEMAND"
-  desired_size    = 1
-  max_size        = 3
-  min_size        = 0
+  desired_size    = 2
+  max_size        = 5
+  min_size        = 2
   tags            = local.eks-tags
   additional_tags = local.tags
   disk_size       = 30
