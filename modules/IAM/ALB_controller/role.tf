@@ -28,7 +28,7 @@ resource "aws_iam_policy" "aws_lbc" {
 
 resource "aws_iam_role_policy_attachment" "aws_alb_polciy_attach" {
   policy_arn = aws_iam_policy.aws_lbc.arn
-  role       = aws_iam_policy.aws_lbc.name
+  role       = aws_iam_role.aws_lbc_role.name
 }
 
 resource "aws_eks_pod_identity_association" "aws_lbc" {
