@@ -14,5 +14,15 @@ resource "helm_release" "aws_Loadbalancer_controller" {
     name  = "serviceAccount.name"
     value = var.aws_Loadbalancer_controller_name
   }
+
+  set {
+    name  = "serviceAccount.create"
+    value = "true"
+  }
+
+  set {
+    name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
+    value = var.aws_lb_iam_role_arn
+  }
 }
 

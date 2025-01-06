@@ -13,7 +13,7 @@ resource "aws_eks_cluster" "aws_eks" {
     endpoint_private_access = var.endpoint_private_access
     endpoint_public_access  = var.endpoint_public_access
     subnet_ids              = var.subnet_ids
-
+    public_access_cidrs     = ["0.0.0.0/0"]
   }
 }
 
