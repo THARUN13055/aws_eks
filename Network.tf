@@ -23,8 +23,6 @@ module "subnets" {
   additional_tags = local.tags
 }
 
-
-
 module "Elastic-ip" {
   source = "./modules/Network/Elastic_IP"
 
@@ -41,7 +39,6 @@ module "NAT" {
   availability_zone = local.subnets.public-2b.zone
 }
 
-
 module "Route" {
   source              = "./modules/Network/RoutTable"
   vpc_id              = module.vpc.vpc_ids
@@ -50,4 +47,13 @@ module "Route" {
   additional_tags     = local.tags
   private_subnet_id   = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
   public_subnet_id    = [module.subnets.subnet_ids["public-1a"], module.subnets.subnet_ids["public-2b"]]
+}
+
+module "security_group" {
+  source = "./modules/Network/Security_Group"
+
+  eks-sg          = "eks-aws-SG"
+  vpc_id          = module.vpc.vpc_ids
+  additional_tags = local.tags
+
 }

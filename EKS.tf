@@ -9,6 +9,7 @@ module "cluster" {
   endpoint_public_access  = true
   endpoint_private_access = true
   vpc_id                  = module.vpc.vpc_ids
+  security_group_id       = module.security_group.security_group_id
 }
 
 module "node" {
