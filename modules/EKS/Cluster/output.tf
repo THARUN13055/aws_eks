@@ -16,3 +16,11 @@ output "cluster_ca_certificate" {
 output "cluster_token" {
   value = data.aws_eks_cluster_auth.cluster_auth_name.token
 }
+
+output "tls_thumb" {
+  value = data.tls_certificate.tls_thumb.certificates.0.sha1_fingerprint
+}
+
+output "cluster-id" {
+  value = aws_eks_cluster.aws_eks.id
+}

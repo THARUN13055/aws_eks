@@ -5,11 +5,11 @@ module "cluster" {
   auth_mode               = "API"
   master-role-arn         = module.master-role.master-role-arn
   eks-version             = local.eks-version
-  subnet_ids              = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"]]
+  subnet_ids              = [module.subnets.subnet_ids["private-1a"], module.subnets.subnet_ids["private-2b"], module.subnets.subnet_ids["public-1a"], module.subnets.subnet_ids["public-2b"]]
   endpoint_public_access  = true
   endpoint_private_access = true
   vpc_id                  = module.vpc.vpc_ids
-  security_group_id       = module.security_group.security_group_id
+  security_group_id       = [module.security_group.security_group_id]
 }
 
 module "node" {
@@ -27,4 +27,3 @@ module "node" {
   additional_tags = local.tags
   disk_size       = 30
 }
-

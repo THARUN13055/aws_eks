@@ -9,3 +9,15 @@ variable "alb_policy_name" {
 variable "cluster_name" {
   type = string
 }
+
+variable "region" {
+  type = string
+}
+
+variable "eks_cluster_id" {
+  type = string
+}
+
+variable "thumb_list" {
+  type      = list(string)
+}

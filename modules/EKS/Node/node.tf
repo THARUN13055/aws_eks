@@ -23,5 +23,11 @@ resource "aws_eks_node_group" "aws-eks-node" {
   lifecycle {
     ignore_changes = [scaling_config[0].desired_size]
   }
-  tags = merge(var.tags, var.additional_tags)
+  tags = merge(
+    var.tags,
+    var.additional_tags,
+    {
+      Name = "${var.node_group_name}"
+    }
+  )
 }
