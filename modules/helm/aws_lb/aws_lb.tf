@@ -24,5 +24,10 @@ resource "helm_release" "aws_Loadbalancer_controller" {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
     value = var.aws_lb_iam_role_arn
   }
+
+  set {
+    name = "vpcId"
+    value = var.vpcId
+  }
 }
 
