@@ -9,3 +9,7 @@ variable "cluster_name" {
 variable "aws_lb_iam_role_arn" {
   type = string
 }
+
+variable "vpcId" {
+  type = string
+}
