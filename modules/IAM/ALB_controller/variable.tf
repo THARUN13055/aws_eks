@@ -19,5 +19,5 @@ variable "eks_cluster_id" {
 }
 
 variable "thumb_list" {
-  type      = list(string)
+  type = list(string)
 }

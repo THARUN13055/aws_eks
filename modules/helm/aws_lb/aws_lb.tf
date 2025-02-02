@@ -26,7 +26,7 @@ resource "helm_release" "aws_Loadbalancer_controller" {
   }
 
   set {
-    name = "vpcId"
+    name  = "vpcId"
     value = var.vpcId
   }
 }
